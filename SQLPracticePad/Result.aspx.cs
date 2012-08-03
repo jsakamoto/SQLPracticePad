@@ -25,25 +25,21 @@ namespace SQLPracticePad
                 try
                 {
                     da.Fill(dt);
+                    this.GridView1.DataSource = dt;
+                    this.GridView1.DataBind();
+                    infomsg.Visible = true;
                 }
                 catch (SqlException e)
                 {
                     RespondSqlError(e);
                 }
-
-                this.GridView1.DataSource = dt;
-                this.GridView1.DataBind();
             }
         }
 
         private void RespondSqlError(SqlException e)
         {
-            Response.ClearContent();
-            Response.ClearHeaders();
-            Response.StatusCode = 400 /*Bad request*/;
-            Response.Write(e.Message);
-            Response.Flush();
-            Response.End();
+            errmsgBox.Visible = true;
+            errmsg.InnerText = e.Message;
         }
     }
 }

@@ -22,13 +22,31 @@ namespace SQLPracticePad {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// InfoMsg control.
+        /// errmsgBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl InfoMsg;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl errmsgBox;
+        
+        /// <summary>
+        /// errmsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl errmsg;
+        
+        /// <summary>
+        /// infomsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl infomsg;
         
         /// <summary>
         /// GridView1 control.

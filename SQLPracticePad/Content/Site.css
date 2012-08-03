@@ -4,12 +4,7 @@
     height:10em;
 }
 
-div.status
+div.result
 {
     margin-top:1em;
 }
-
-    div.status .alert
-    {
-        display:none;
-    }
