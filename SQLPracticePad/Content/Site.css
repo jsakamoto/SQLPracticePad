@@ -3,3 +3,13 @@
     font-family: Consolas, monospace, sans-serif;
     height:10em;
 }
+
+div.status
+{
+    margin-top:1em;
+}
+
+    div.status .alert
+    {
+        display:none;
+    }

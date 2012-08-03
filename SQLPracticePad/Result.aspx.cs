@@ -12,9 +12,9 @@ namespace SQLPracticePad
 {
     public partial class Result : System.Web.UI.Page
     {
-        protected override void OnInit(EventArgs e)
+        protected override void OnInit(EventArgs args)
         {
-            base.OnInit(e);
+            base.OnInit(args);
 
             var connStr = ConfigurationManager.ConnectionStrings["DefaultConnection"];
             using (var conn = new SqlConnection(connStr.ConnectionString))
@@ -22,13 +22,28 @@ namespace SQLPracticePad
                 var sql = Request.Form["sql"];
                 var da = new SqlDataAdapter(sql, conn);
                 var dt = new DataTable();
-                da.Fill(dt);
+                try
+                {
+                    da.Fill(dt);
+                }
+                catch (SqlException e)
+                {
+                    RespondSqlError(e);
+                }
 
                 this.GridView1.DataSource = dt;
                 this.GridView1.DataBind();
-
-                this.phSuccess.Visible = true;
             }
+        }
+
+        private void RespondSqlError(SqlException e)
+        {
+            Response.ClearContent();
+            Response.ClearHeaders();
+            Response.StatusCode = 400 /*Bad request*/;
+            Response.Write(e.Message);
+            Response.Flush();
+            Response.End();
         }
     }
 }
